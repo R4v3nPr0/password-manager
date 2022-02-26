@@ -52,7 +52,7 @@ open class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel>(
     }
     
     private fun initView() {
-        loadingView = AlertDialog.Builder(this, R.style.DialogWithCustomView)
+        loadingView = AlertDialog.Builder(this, R.style.DialogWithCustomViewMinWidth)
             .setView(R.layout.view_loading)
             .create()
     }

@@ -254,7 +254,7 @@ class PasswordsActivity : BaseActivity<ActivityPasswordsBinding, PasswordsViewMo
     }
     
     private fun onShowPasswordCollected(position: Int) {
-        AlertDialog.Builder(this@PasswordsActivity, R.style.DialogWithCustomView)
+        AlertDialog.Builder(this@PasswordsActivity, R.style.DialogWithCustomViewMaxWidth)
             .setView(ViewPasswordBinding.inflate(layoutInflater).apply {
                 name = viewModel.passwords.value[position].name
                 notes = viewModel.passwords.value[position].notes

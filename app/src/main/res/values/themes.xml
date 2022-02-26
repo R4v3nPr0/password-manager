@@ -23,7 +23,13 @@
         <item name="android:windowBackground">@drawable/bg_dialog</item>
     </style>
     
-    <style name="DialogWithCustomView" parent="Theme.AppCompat.Dialog.Alert">
+    <style name="DialogWithCustomViewMaxWidth" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+    
+    <style name="DialogWithCustomViewMinWidth" parent="Theme.AppCompat.Dialog.Alert">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowMinWidthMajor">0%</item>
         <item name="android:windowMinWidthMinor">0%</item>
