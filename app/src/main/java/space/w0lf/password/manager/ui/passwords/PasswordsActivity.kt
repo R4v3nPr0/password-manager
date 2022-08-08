@@ -1,5 +1,6 @@
 package space.w0lf.password.manager.ui.passwords
 
+import android.app.AlertDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
@@ -9,7 +10,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,8 +22,9 @@ import space.w0lf.password.manager.application.registry.ApplicationRegistry
 import space.w0lf.password.manager.base.android.BaseActivity
 import space.w0lf.password.manager.data.dao.android.room.database.PasswordManagerDatabase
 import space.w0lf.password.manager.databinding.ActivityPasswordsBinding
-import space.w0lf.password.manager.databinding.ViewPasswordBinding
+import space.w0lf.password.manager.databinding.ActivityShowPasswordBinding
 import space.w0lf.password.manager.ui.addPassword.AddPasswordActivity
+import space.w0lf.password.manager.ui.showPassword.ShowPasswordActivity
 
 class PasswordsActivity : BaseActivity<ActivityPasswordsBinding, PasswordsViewModel>(
     R.layout.activity_passwords,
@@ -183,7 +184,7 @@ class PasswordsActivity : BaseActivity<ActivityPasswordsBinding, PasswordsViewMo
     
     private fun onShowActionsViewCollected(position: Int) {
         PopupMenu(this@PasswordsActivity, actionsAnchorView).run {
-            inflate(R.menu.menu_password_actions)
+            inflate(R.menu.menu_passwords_password_actions)
             setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     R.id.copy -> {
@@ -231,7 +232,7 @@ class PasswordsActivity : BaseActivity<ActivityPasswordsBinding, PasswordsViewMo
     }
     
     private fun onShowConfirmPasswordViewCollected(passwordPosition: Int) {
-        AlertDialog.Builder(this, R.style.Dialog)
+        AlertDialog.Builder(this)
             .setMessage(R.string.message_confirm_delete_password)
             .setNegativeButton(R.string.no) { dialog, _ ->
                 dialog.dismiss()
@@ -254,16 +255,9 @@ class PasswordsActivity : BaseActivity<ActivityPasswordsBinding, PasswordsViewMo
     }
     
     private fun onShowPasswordCollected(position: Int) {
-        AlertDialog.Builder(this@PasswordsActivity, R.style.DialogWithCustomViewMaxWidth)
-            .setView(ViewPasswordBinding.inflate(layoutInflater).apply {
-                name = viewModel.passwords.value[position].name
-                notes = viewModel.passwords.value[position].notes
-                password = viewModel.passwords.value[position].password
-                status = viewModel.passwords.value[position].status
-                url = viewModel.passwords.value[position].url
-                username = viewModel.passwords.value[position].username
-            }.root)
-            .show()
+        startActivity(Intent(this, ShowPasswordActivity::class.java).apply {
+            putExtra(ShowPasswordActivity.EXTRA_PASSWORD, viewModel.passwords.value[position])
+        })
     }
     
     private fun onShowPasswordsCollected() {

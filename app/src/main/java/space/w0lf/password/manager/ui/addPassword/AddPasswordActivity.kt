@@ -1,12 +1,12 @@
 package space.w0lf.password.manager.ui.addPassword
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
@@ -231,7 +231,7 @@ class AddPasswordActivity() : BaseActivity<ActivityAddPasswordBinding, AddPasswo
     }
     
     private fun onShowInvalidNameErrorCollected() {
-        AlertDialog.Builder(this, R.style.Dialog)
+        AlertDialog.Builder(this)
             .setMessage(R.string.error_empty_name)
             .setPositiveButton(R.string.ok) { dialog, _ ->
                 dialog.dismiss()
@@ -241,7 +241,7 @@ class AddPasswordActivity() : BaseActivity<ActivityAddPasswordBinding, AddPasswo
     }
     
     private fun onShowInvalidPasswordErrorCollected() {
-        AlertDialog.Builder(this, R.style.Dialog)
+        AlertDialog.Builder(this)
             .setMessage(R.string.error_different_passwords)
             .setPositiveButton(R.string.ok) { dialog, _ ->
                 dialog.dismiss()
@@ -251,7 +251,7 @@ class AddPasswordActivity() : BaseActivity<ActivityAddPasswordBinding, AddPasswo
     }
     
     private fun onShowInvalidStatusErrorCollected() {
-        AlertDialog.Builder(this, R.style.Dialog)
+        AlertDialog.Builder(this)
             .setMessage(R.string.error_status_not_selected)
             .setPositiveButton(R.string.ok) { dialog, _ ->
                 dialog.dismiss()
@@ -261,7 +261,7 @@ class AddPasswordActivity() : BaseActivity<ActivityAddPasswordBinding, AddPasswo
     }
     
     private fun onShowPasswordSaveErrorCollected() {
-        AlertDialog.Builder(this, R.style.Dialog)
+        AlertDialog.Builder(this)
             .setMessage(R.string.error_password_not_saved)
             .setPositiveButton(R.string.ok) { dialog, _ ->
                 dialog.dismiss()
@@ -271,7 +271,7 @@ class AddPasswordActivity() : BaseActivity<ActivityAddPasswordBinding, AddPasswo
     }
     
     private fun onShowPasswordSaveSuccessCollected() {
-        AlertDialog.Builder(this, R.style.Dialog)
+        AlertDialog.Builder(this)
             .setMessage(R.string.message_password_saved)
             .setPositiveButton(R.string.ok) { dialog, _ ->
                 dialog.dismiss()

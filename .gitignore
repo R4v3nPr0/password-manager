@@ -3,5 +3,7 @@
 **/.gradle
 **/.idea
 **/build
+**/gradle.bat
 **/local.properties
 **/local.properties
+app/release

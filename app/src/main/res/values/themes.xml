@@ -5,7 +5,7 @@
     <style name="App" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="android:colorBackground">@color/background</item>
         <item name="android:navigationBarColor">@color/black</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/primary_variant</item>
+        <item name="android:statusBarColor" >@color/primary_variant</item>
         <item name="android:textAppearanceLargePopupMenu">@style/LargePopupMenuTextAppearance</item>
         <item name="android:textAppearanceSmallPopupMenu">@style/SmallPopMenuTextAppearance</item>
         <item name="colorOnBackground">@color/on_background</item>
@@ -17,16 +17,6 @@
         <item name="colorSecondary">@color/secondary</item>
         <item name="colorSecondaryVariant">@color/secondary_variant</item>
         <item name="colorSurface">@color/surface</item>
-    </style>
-    
-    <style name="Dialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
-        <item name="android:windowBackground">@drawable/bg_dialog</item>
-    </style>
-    
-    <style name="DialogWithCustomViewMaxWidth" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowMinWidthMajor">90%</item>
-        <item name="android:windowMinWidthMinor">90%</item>
     </style>
     
     <style name="DialogWithCustomViewMinWidth" parent="Theme.AppCompat.Dialog.Alert">

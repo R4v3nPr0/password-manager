@@ -25,12 +25,19 @@
         </activity>
         
         <activity
+            android:exported="false"
             android:label="@string/add_password"
             android:name="space.w0lf.password.manager.ui.addPassword.AddPasswordActivity" />
     
         <activity
+            android:exported="false"
             android:label="@string/passwords"
             android:name="space.w0lf.password.manager.ui.passwords.PasswordsActivity" />
+        
+        <activity
+            android:exported="false"
+            android:label="@string/password_1"
+            android:name=".ui.showPassword.ShowPasswordActivity" />
         
     </application>
 
