@@ -14,7 +14,7 @@ import space.w0lf.password.manager.domain.useCase.SavePasswordUseCase
 class AddPasswordViewModel(private val savePasswordUseCase: SavePasswordUseCase) : BaseViewModel() {
     
     class Factory(private val savePasswordUseCase: SavePasswordUseCase) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return AddPasswordViewModel(savePasswordUseCase) as T
         }
     }

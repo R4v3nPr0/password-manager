@@ -21,7 +21,7 @@ class PasswordsViewModel(
         private val deletePasswordUseCase: DeletePasswordUseCase,
         private val getPasswordsUseCase: GetPasswordsUseCase
     ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+        override fun <T : ViewModel> create(modelClass: Class<T>): T =
             PasswordsViewModel(deletePasswordUseCase, getPasswordsUseCase) as T
     }
     

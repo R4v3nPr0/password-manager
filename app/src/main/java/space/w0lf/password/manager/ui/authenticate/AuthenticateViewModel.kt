@@ -23,7 +23,7 @@ class AuthenticateViewModel(
         private val storeCredentialsUseCase: StoreCredentialsUseCase,
         private val validateUserCredentialsUseCase: ValidateUserCredentialsUseCase
     ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return AuthenticateViewModel(
                 authenticateUseCase,
                 storeCredentialsUseCase,

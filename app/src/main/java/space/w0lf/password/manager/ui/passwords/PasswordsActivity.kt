@@ -42,7 +42,7 @@ class PasswordsActivity : BaseActivity<ActivityPasswordsBinding, PasswordsViewMo
     }
     
     private val searchOnActionExpandListener = object : MenuItem.OnActionExpandListener {
-        override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+        override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
             lifecycleScope.launch(Dispatchers.IO) {
                 viewModel.searchViewClosed()
             }
@@ -52,7 +52,7 @@ class PasswordsActivity : BaseActivity<ActivityPasswordsBinding, PasswordsViewMo
             return true
         }
         
-        override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+        override fun onMenuItemActionExpand(item: MenuItem): Boolean {
             addMenuItem.isVisible = false
             return true
         }
